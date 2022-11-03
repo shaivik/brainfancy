@@ -23,7 +23,7 @@
 
 ### High Level Diagram 
 
-![Copy_of_Sidekiq_Architecture.drawio](/uploads/8141037a81d2073686f384435725a99b/Copy_of_Sidekiq_Architecture.drawio.png)
+![Copy_of_Sidekiq_Architecture.drawio](https://drive.google.com/file/d/1X3P2JlvVAkyS7TD5bpRNyKHjhvwfboFn/view?usp=share_link)
 
 
 - The workers need to lie in the above four patterns in the diagram. The 4 patterns are: 
@@ -75,7 +75,7 @@ In this strategy, we need to consider pulling out the logic of making thirdparty
 
 Consider using webhook based architecture in case response is not required synchronously. This can be used in our interservice communication where we sync data and then update successful sync flags at source upon successful response. Example: ProcurementOrderStatusUpdateWorker. For external thirdparty services we would need to confirm if webhook architecture is possible at their end. 
 
-![webhook.drawio__1_](/uploads/6e5b6a9ba583db1d6d0038257981b151/webhook.drawio__1_.png)
+![webhook.drawio__1_](https://drive.google.com/file/d/1hFycS7moLFpPad9ExaHsTI2MR4SbP7Se/view?usp=share_link)
 
 
 But before doing this we need to consider the amount of data which we will need to store in redis to perform this action. Bulk operations API calls in other worker should be avoided as it might lead to redis limits. 
